@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h5>Rooms disponibles</h5>
+    {% for room in rooms %}
+    <a class="btn btn-primary" href="{% url 'room' room.id %}" rol="button">{{room.name}}</a>
+    {% endfor %}
+    {%if error_message%}
+        <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+            {{error_message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+    {%endif%}
+</div>
+{% endblock  %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container col-8 mt-5">
+        <h4>Bienvenido al chat {{room.name}} </h4>
+        <i class="bi bi-person-workspace"> {{request.user}}</i>
+        <hr>
+        <div id="boxMessages">
+
+        </div>
+        <div id="chat">
+            <input class="form-control" type="text" id="inputMessage" placeholder="Escribe un mensaje...">
+            <button class="btn btn-success mt-2" id="btnMessage">Enviar</button>
+            <a class="btn btn-primary mt-2 float-end" href="{%url 'home'%}">salir</a>
+        </div>
+    </div>
+    <script>
+        var user = '{{request.user}}'
+        var room_id = '{{room.id}}'
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{% static '/js/chat.js' %}"></script>
+{% endblock  %}
